@@ -1,0 +1,81 @@
+ @{
+
+    Layout = "/_SiteLayout.cshtml";
+    Page.Title = "Compare";
+
+    Validation.RequireField("emailAddress", "customerName is required.");
+    Validation.RequireField("emailSubject", "customerEmail is required.");
+    Validation.RequireField("emailBody", "customerRequest is required."); 
+
+        var message = "";
+        var companyname = Request.Form["emailAddress"];
+        var contactname = Request.Form["emailSubject"];
+        var employeecount = Request.Form["emailBody"];
+
+
+    try{
+        if (IsPost && Validation.IsValid()) {
+
+        // Send email
+        WebMail.Send(to:"ADMIN-EMAIL-ADDRESS.COM",
+            subject: Request.Form["emailSubject"],
+
+            body: "Help request from -   " + Request.Form["customerName"] + " - " + "Email Subject -   " + Request.Form["emailSubject"]  + " - " + "Customer email -   " + Request.Form["emailAddress"]
+           );
+           message = "Email sent!";
+        }
+    }
+    catch(Exception ex){
+        message = "Email could not be sent!";
+    }
+}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+     <meta charset="utf-8" />
+     <title>Test Email</title>
+
+              <style type="text/css">
+          .validation-summary-errors {font-weight:bold; color:red; font-size: 11pt;}
+             .validation-summary-valid {
+    display: none;
+}
+
+         </style>
+
+  </head>
+  <body>
+    <h1>Test Email</h1>
+    <form method="post">
+        @Html.ValidationSummary("Errors with your submission:")
+
+       <p>
+        <label for="customerName">Name:</label>
+        <input type="text" name="customerName" value="@Request.Form["customerName"]"  />
+
+
+      </p>
+
+      <p>
+        <label for="emailAddress">Email address:</label>
+        <input type="text" name="emailAddress" value="@Request.Form["emailAddress"]"  />
+
+
+      </p>
+      <p>
+        <label for="emailSubject">Subject:</label>
+        <input type="text" name="emailSubject" value="@Request.Form["emailSubject"]"  /> 
+
+      </p>
+      <p>
+        <label for="emailBody">Text to send:</label><br/>
+        <textarea name="emailBody" rows="6"></textarea>
+
+      </p>
+    <p><input type="submit" value="Send!" /></p>
+    @if(IsPost){
+        <p>@message</p>
+    }
+    </form>
+  </body>
+</html>
