@@ -40,10 +40,6 @@ if(isset($_POST['email'])) {
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
  
-  if(!preg_match($string_exp,$degree)) {
-    $error_message .= 'The Degree you entered does not appear to be valid.<br />';
-  }
-
 if(!preg_match($email_exp,$email_from)) {
     $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
   }
@@ -80,7 +76,8 @@ if(!preg_match($email_exp,$email_from)) {
  
      
  
-    $email_message .= "Name: ".clean_string($firstname) + ($lastname)."\n";
+    $email_message .= "First Name: ".clean_string($firstname);
+    $email_message .= " ".clean_string($lastname)."\n";
     $email_message .= "College/Company: ".clean_string($college)."\n";
     $email_message .= "Degree: ".clean_string($degree)."\n";
     $email_message .= "Email Address: ".clean_string($email_from)."\n";
