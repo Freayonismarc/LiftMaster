@@ -10,7 +10,7 @@ if(isset($_POST['email'])) {
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
         echo "These errors appear below.<br /><br />";
         echo $error."<br /><br />";
-        echo '<a href = "https://liftmaster.000webhostapp.com/recruitment.html">Back to Recruitment Page</a>.<br /><br />';
+        echo '<a href = "recruitment.html">Back to Recruitment Page</a>.<br /><br />';
         echo "Please go back and fix these errors.<br /><br />";
         die();
     }
@@ -93,7 +93,7 @@ $headers = 'From: '.$email_from."\r\n".
  
 <!-- include your own success html here -->
  
-You'll hear from us as soon as your information has been reviewed. <a href="https://liftmaster.000webhostapp.com/">BACK TO HOME PAGE</a>
+You'll hear from us as soon as your information has been reviewed. <a href="index.html">BACK TO HOME PAGE</a>
  
 <?php
  

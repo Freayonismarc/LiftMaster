@@ -10,6 +10,7 @@ if(isset($_POST['email'])) {
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
         echo "These errors appear below.<br /><br />";
         echo $error."<br /><br />";
+        echo '<a href = "contact.html">Back to Contact Us Page</a>.<br /><br />';
         echo "Please go back and fix these errors.<br /><br />";
         die();
     }
@@ -71,7 +72,7 @@ if(isset($_POST['email'])) {
     $email_message .= "Company: ".clean_string($company)."\n";
     $email_message .= "Email: ".clean_string($email_from)."\n";
     $email_message .= "Telephone: ".clean_string($telephone)."\n";
-    $email_message .= "Comments: ".clean_string($comments)."\n";
+    $email_message .= "Comments: "."\n".clean_string($comments)."\n";
  
 // create email headers
 $headers = 'From: '.$email_from."\r\n".
@@ -82,7 +83,7 @@ $headers = 'From: '.$email_from."\r\n".
  
 <!-- include your own success html here -->
  
-We appreciate your feedback. <a href="https://liftmaster.000webhostapp.com/">BACK TO HOME PAGE</a>
+We appreciate your feedback. <a href="index.html">BACK TO HOME PAGE</a>
  
 <?php
  
