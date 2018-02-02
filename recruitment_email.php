@@ -10,6 +10,7 @@ if(isset($_POST['email'])) {
         echo "We are very sorry, but there were error(s) found with the form you submitted. ";
         echo "These errors appear below.<br /><br />";
         echo $error."<br /><br />";
+        echo '<a href = "https://liftmaster.000webhostapp.com/recruitment.html">Back to Recruitment Page</a>.<br /><br />';
         echo "Please go back and fix these errors.<br /><br />";
         die();
     }
