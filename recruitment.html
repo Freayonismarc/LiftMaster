@@ -94,7 +94,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<h4>Insert the following info:</strong></h4>
-							<form id="contactform" action="" method="post" class="validateform" name="send-contact">
+							<form id="contactform" action="recruitment_email.php" method="post" class="validateform" name="send-contact">
 								<div class="row">
 									<div class="col-lg-3 field">
 										<input type="text" name="firstname" placeholder="First Name" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
@@ -102,7 +102,7 @@
 										</div>
 									</div>
 									<div class="col-lg-3 field">
-										<input type="text" name="lastname" placeholder="Last Name" data-rule="email" data-msg="Please enter a valid email" />
+										<input type="text" name="lastname" placeholder="Last Name" data-rule="maxlen:4" data-msg="Please enter a valid Last Name" />
 										<div class="validation">
 										</div>
 									</div>
@@ -117,7 +117,12 @@
 										</div>
 									</div>
 									<div class="col-lg-3 field">
-										<input type="text" name="contactnumber" placeholder="Contact Number" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
+										<input type="text" name="email" placeholder="Email Address" data-rule="email" data-msg="Please enter a valid email" />
+										<div class="validation">
+										</div>
+									</div>
+									<div class="col-lg-3 field">
+										<input type="text" name="telephone" placeholder="Contact Number" data-rule="maxlen:4" data-msg="Please enter at least 4 chars" />
 										<div class="validation">
 										</div>
 									</div>
