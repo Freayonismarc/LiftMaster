@@ -2,8 +2,8 @@
 if(isset($_POST['email'])) {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "jacinto.marc@gmail.com";
-    $email_subject = "Recruitment Information";
+    $email_to = "hr@simplex.com.ph";
+    $email_subject = "LMsite Application";
  
     function died($error) {
         // your error code can go here
@@ -67,7 +67,6 @@ if(!preg_match($email_exp,$email_from)) {
   }
  
     $email_message = "Form details below.\n\n";
- 
      
     function clean_string($string) {
       $bad = array("content-type","bcc:","to:","cc:","href");
