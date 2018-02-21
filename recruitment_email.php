@@ -2,7 +2,7 @@
 if(isset($_POST['email'])) {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "hr@simplex.com.ph";
+    $email_to = "jacinto.marc@gmail.com";
     $email_subject = "LMsite Application";
  
     function died($error) {
@@ -55,7 +55,7 @@ if(!preg_match($email_exp,$email_from)) {
   }
 
   if(!preg_match($string_exp,$college)) {
-    $error_message .= 'The College you entered does not appear to be valid.<br />';
+    $error_message .= 'The salary you entered does not appear to be valid.<br />';
   }
  
   if(strlen($info) < 2) {
@@ -77,8 +77,8 @@ if(!preg_match($email_exp,$email_from)) {
  
     $email_message .= "First Name: ".clean_string($firstname);
     $email_message .= " ".clean_string($lastname)."\n";
-    $email_message .= "College/Company: ".clean_string($college)."\n";
-    $email_message .= "Degree: ".clean_string($degree)."\n";
+    $email_message .= "Asking Salary: ".clean_string($college)."\n";
+    $email_message .= "Position: ".clean_string($degree)."\n";
     $email_message .= "Email Address: ".clean_string($email_from)."\n";
     $email_message .= "Telephone: ".clean_string($telephone)."\n";
     $email_message .= "Information: "."\n".clean_string($info)."\n";
