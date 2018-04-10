@@ -2,7 +2,7 @@
 if(isset($_POST['email'])) {
  
     // EDIT THE 2 LINES BELOW AS REQUIRED
-    $email_to = "hr@simplex.com.ph";
+    $email_to = "jacinto.marc@gmail.com";
     $email_subject = "LMsite Application";
  
     function died($error) {
@@ -71,7 +71,9 @@ if(!preg_match($email_exp,$email_from)) {
     }
  
      
- 
+    require("phpmailer.php");
+    $mail = new PHPMailer();
+
     $email_message .= "First Name: ".clean_string($firstname);
     $email_message .= " ".clean_string($lastname)."\n";
     $email_message .= "Asking Salary: ".clean_string($college)."\n";
@@ -81,7 +83,8 @@ if(!preg_match($email_exp,$email_from)) {
     $email_message .= "Why I should be hired: "."\n".clean_string($info)."\n";
 
     $file_to_attach = 'resume';
-    $email->AddAttachment( $resume , '.pdf' );
+
+    $mail->AddAttachment( $resume , 'resume'. ".pdf" );
  
 // create email headers
 $headers = 'From: '.$email_from."\r\n".
