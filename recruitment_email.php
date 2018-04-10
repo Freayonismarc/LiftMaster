@@ -36,6 +36,7 @@ if(isset($_POST['email'])) {
     $telephone = $_POST['telephone']; // not required
     $email_from = $_POST['email'];
     $info = $_POST['info']; // required
+    $resume = $_POST['resume'];
  
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
@@ -78,6 +79,9 @@ if(!preg_match($email_exp,$email_from)) {
     $email_message .= "Email Address: ".clean_string($email_from)."\n";
     $email_message .= "Telephone: ".clean_string($telephone)."\n";
     $email_message .= "Why I should be hired: "."\n".clean_string($info)."\n";
+
+    $file_to_attach = 'resume';
+    $email->AddAttachment( $resume , '.pdf' );
  
 // create email headers
 $headers = 'From: '.$email_from."\r\n".
