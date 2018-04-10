@@ -70,10 +70,7 @@ if(!preg_match($email_exp,$email_from)) {
       return str_replace($bad,"",$string);
     }
  
-     
-    require("phpmailer.php");
-    $mail = new PHPMailer();
-
+    
     $email_message .= "First Name: ".clean_string($firstname);
     $email_message .= " ".clean_string($lastname)."\n";
     $email_message .= "Asking Salary: ".clean_string($college)."\n";
@@ -81,10 +78,7 @@ if(!preg_match($email_exp,$email_from)) {
     $email_message .= "Email Address: ".clean_string($email_from)."\n";
     $email_message .= "Telephone: ".clean_string($telephone)."\n";
     $email_message .= "Why I should be hired: "."\n".clean_string($info)."\n";
-
-    $file_to_attach = 'resume';
-
-    $mail->AddAttachment( $resume , 'resume'. ".pdf" );
+    $email_message .= "Resume: "."\n".clean_string($resume)."\n";
  
 // create email headers
 $headers = 'From: '.$email_from."\r\n".
